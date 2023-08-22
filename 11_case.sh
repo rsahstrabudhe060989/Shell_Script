@@ -12,6 +12,6 @@ case $action in
       echo -e "\e [31m Stopping Payment Service \e [0m"
       ;;
       restart)
-      echo -e"\e[30m Restarting\e[om \e[33m payment service[0m"
+      echo -e"\e[34m Restarting\e[om \e[32m payment service[0m"
 
 esac
