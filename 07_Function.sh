@@ -8,7 +8,7 @@ stat()
 {
 echo "Total number of sessions :$(who | wc -l)"
 echo "Todays date is $(date +%F )"
-echo " Todays avarge load ${ uptime | awk -F : '{print $NF}' | awk -F , '{print $1}'}"
+#echo " Todays avarge load ${ uptime | awk -F : '{print $NF}' | awk -F , '{print $1}'}"
 echo "This calling function from another function"
 f
 
