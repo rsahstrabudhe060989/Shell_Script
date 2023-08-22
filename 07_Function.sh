@@ -2,7 +2,7 @@
 
 f()   {
         echo "this is called from inside function nesting function call"     
-        echo -e "\e[31m name you enter  $NAME \e[0m"
+        echo -e "\e[31m name you enter \e[0m  $NAME "
       }
 
 stat()
