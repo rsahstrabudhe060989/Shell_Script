@@ -17,7 +17,8 @@ echo "Todays date is $(date +%F )"
 echo "Todays date is $(uptime | awk -F : '{print $NF}')"
 echo -e "\e[32m This calling function from another function \e[0m "
 read -p "enter the name of user :" NAME
-exit 0
+#exit 0 this will exit from the function and dont execute next part of script
+return # this will only exit from this funcion
 f
 }
 
