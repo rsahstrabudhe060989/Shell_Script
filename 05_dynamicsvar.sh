@@ -4,5 +4,5 @@ Today= ${date +%F}
 
 echo -e "Todays date is: \e[32m ${date} \e[0m"
 echo -e "Todays date is: \e[32m ${today} \e[0m"
-echo  $0
-echo  $1
+echo  echo first varible $0
+echo  echo second varible $1
