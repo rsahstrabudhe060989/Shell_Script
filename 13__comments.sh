@@ -2,8 +2,8 @@
 
 echo "This is Batch53 of DevOps with AWS"
 
-<<Comment
+<<COMMENT
 a=10
 echo $a
 echo " this is value"
-comment
+COMMENT
