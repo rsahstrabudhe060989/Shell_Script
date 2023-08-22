@@ -14,4 +14,6 @@ case $action in
       restart)
       echo -e " \e[32m reStarting Payment Service \e[0m"
       ;;
+      *)
+      echo -e "\e[32m Wrong\e[0m"
 esac
