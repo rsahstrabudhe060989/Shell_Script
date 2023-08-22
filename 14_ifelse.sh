@@ -21,7 +21,7 @@ Operators  on files
 comment
 
 echo "Demonstrating simple if condtions"
-action $1
+action= $1
 
 if [ "$action" == "start"] ; then
 echo -e "Correct Value /start"
