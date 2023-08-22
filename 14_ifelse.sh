@@ -25,7 +25,7 @@ action= $1
 
 if [ "$action" == "start"] ; then
 echo "Correct Value /start"
-else if [ "$action" == "stop" ] ; then
+elif [ "$action" == "stop" ] ; then
 echo  "Correct Value /stop"
 else 
 echo  "wrong Value "
