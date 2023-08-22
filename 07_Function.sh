@@ -1,7 +1,6 @@
 #!bin/bash
 
-f()
-{
-
-    echo  " This is test function for checking"
-}
+f()   {
+        echo this is the testing purpose
+     
+      }
