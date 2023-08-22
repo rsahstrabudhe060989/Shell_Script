@@ -24,10 +24,10 @@ echo "Demonstrating simple if condtions"
 action= $1
 
 if [ "$action" == "start"] ; then
-echo -e "Correct Value /start"
-else if [ "$action" == "stop"] ; then
-echo -e "Correct Value /stop"
+echo "Correct Value /start"
+else if [ "$action" == "stop" ] ; then
+echo  "Correct Value /stop"
 else 
-echo -e "wrong Value "
+echo  "wrong Value "
 if 
 
