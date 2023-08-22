@@ -4,3 +4,5 @@ echo -e "line1\nline2\tline3"
 
 
 #to use escape sequene character can be enable '-e'
+# " : double quote
+# ' : single quote
