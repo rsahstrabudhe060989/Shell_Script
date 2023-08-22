@@ -29,5 +29,5 @@ else if [ "$action" == "stop" ] ; then
 echo  "Correct Value /stop"
 else 
 echo  "wrong Value "
-if 
+fi 
 
