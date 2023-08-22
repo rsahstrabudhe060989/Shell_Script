@@ -2,6 +2,7 @@
 
 f()   {
         echo "this is called from inside function nesting function call"     
+        echo "name you enter $NAME"
       }
 
 stat()
@@ -9,7 +10,8 @@ stat()
 echo "Total number of sessions :$(who | wc -l)"
 echo "Todays date is $(date +%F )"
 echo "Todays date is $(uptime | awk -F : '{print $NF}')"
-echo "This calling function from another function"
+echo -e "\e[32m This calling function from another function \e[0m "
+read -p "enter the name of user :" NAME
 f
 }
 
