@@ -9,3 +9,5 @@ echo  echo second varible $1
 echo  echo suplied  varible $#
 
 echo  echo suplied  varible $@
+
+echo  echo suplied  varible $*
