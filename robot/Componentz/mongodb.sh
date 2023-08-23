@@ -30,5 +30,8 @@ stat $?
 echo -n "Installing the $component Component:"
 yum install -y mongodb-org &>> $logfile
 stat $?
+
+echo -n "starting the $component Component:"
 systemctl enable mongod
 systemctl start mongod
+stat $?
