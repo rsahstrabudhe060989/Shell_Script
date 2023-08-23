@@ -3,7 +3,7 @@
 set -e # if any thing fail script will be exited
 
 #validating  wheather the executed user is root or not
-
+component=frontend
 ID=$(id -u) 
 
 if [ "$ID" -ne 0 ] ; then
@@ -22,27 +22,27 @@ fi
 }
 
 echo -n "Installing Ngnix :"
-yum install nginx -y &>> /tmp/frontend.log
+yum install nginx -y &>> /tmp/$component.log
 stat $?
 
-echo -n "Downloading the frontned Component:"
-curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
+echo -n "Downloading the $component Component:"
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip"
 stat $?
 
-echo -n "Performing Cleanup of Old frontend:"
+echo -n "Performing Cleanup of Old $component:"
 cd /usr/share/nginx/html
-rm -rf * &>> /tmp/frontend.log
+rm -rf * &>> /tmp/$component.log
 stat $?
 
-echo -n "Copying the downloaded frontend component:"
-unzip /tmp/frontend.zip &>>/tmp/frontend.log
-mv frontend-main/* .
+echo -n "Copying the downloaded $component component:"
+unzip /tmp/$component.zip &>>/tmp/$component.log
+mv $component-main/* .
 mv static/* .
-rm -rf frontend-main README.md
+rm -rf $component-main README.md
 mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "Starting the Server"
-systemctl enable nginx &>> /tmp/frontend.log
-systemctl start nginx &>> /tmp/frontend.log
+systemctl enable nginx &>> /tmp/$component.log
+systemctl start nginx &>> /tmp/$component.log
 
