@@ -3,8 +3,8 @@
 set -r # if any thing fail script will be exited
 
 #validating  wheather the executed user is root or not
-user_id=${id -u} 
-if [ "$user_id" -ne 0] ; then
+ID=${id -u} 
+if [ "$ID" -ne 0] ; then
    echo "you should execute this script as a root user"
    exit 1
 fi
@@ -14,7 +14,7 @@ curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend
 
  cd /usr/share/nginx/html
  rm -rf * &>> /tmp/frontend.log
- unzip /tmp/frontend.zip
+ unzip /tmp/frontend.zip &>>/tmp/frontend.log
  mv frontend-main/* .
  mv static/* .
  rm -rf frontend-main README.md
