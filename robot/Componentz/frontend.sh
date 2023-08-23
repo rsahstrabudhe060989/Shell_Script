@@ -4,6 +4,8 @@ set -e # if any thing fail script will be exited
 
 #validating  wheather the executed user is root or not
 component=frontend
+logfile= "/tmp/$component.log"
+
 ID=$(id -u) 
 
 if [ "$ID" -ne 0 ] ; then
@@ -22,7 +24,7 @@ fi
 }
 
 echo -n "Installing Ngnix :"
-yum install nginx -y &>> /tmp/$component.log
+yum install nginx -y &>> $logfile
 stat $?
 
 echo -n "Downloading the $component Component:"
@@ -31,11 +33,11 @@ stat $?
 
 echo -n "Performing Cleanup of Old $component:"
 cd /usr/share/nginx/html
-rm -rf * &>> /tmp/$component.log
+rm -rf * &>> $logfile
 stat $?
 
 echo -n "Copying the downloaded $component component:"
-unzip /tmp/$component.zip &>>/tmp/$component.log
+unzip /tmp/$component.zip &>> $logfile
 mv $component-main/* .
 mv static/* .
 rm -rf $component-main README.md
@@ -43,6 +45,6 @@ mv localhost.conf /etc/nginx/default.d/roboshop.conf
 stat $?
 
 echo -n "Starting the Server"
-systemctl enable nginx &>> /tmp/$component.log
-systemctl start nginx &>> /tmp/$component.log
+systemctl enable nginx &>> $logfile
+systemctl start nginx &>> $logfile
 
