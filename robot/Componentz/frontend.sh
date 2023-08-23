@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#set -e # if any thing fail script will be exited
+set -e # if any thing fail script will be exited
 
 #validating  wheather the executed user is root or not
 
@@ -13,7 +13,7 @@ fi
 
 echo -n "Installing Ngnix :"
 
-yum install nginxaa -y &>> /tmp/frontend.log
+yum install nginx -y &>> /tmp/frontend.log
 if [ $? -eq 0 ] ; then
 echo -e "\e[32m success \e[0m"
 else
