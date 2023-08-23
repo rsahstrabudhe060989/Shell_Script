@@ -1,0 +1,19 @@
+SED (Streamline Editor)
+
+Delete the lines
+Substitutes the lines
+add the lines
+
+Sed will not change file and print the changes on the terminal, this is the default behavior of SED
+
+SED (Deleting The lines)
+
+sed -e '/root/ d' /tmp/passwd
+sed -i -e '/root/ d' /tmp/passwd
+sed -i -e'/1 d' /tmp/passwd
+
+SED (Substituting  The words)
+ 
+sed -e 's/root/ROOT/' /tmp/passwd
+sed -i -e 's/root/ROOT' /tmp/passwd
+sed -i -e 's/root/ROOT/gi' /tmp/passwd

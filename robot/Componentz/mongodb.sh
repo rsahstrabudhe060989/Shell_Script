@@ -35,3 +35,12 @@ echo -n "starting the $component Component:"
 systemctl enable mongod
 systemctl start mongod
 stat $?
+
+echo -n "Updating the $component visibility"
+sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongodb.conf
+stat $?
+
+echo -n "performing Daemon-Reload :"
+systemctl daemon-reload &>> $logfile
+systemctl restart mongod
+stat $?
