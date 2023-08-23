@@ -10,6 +10,9 @@ if [ "$ID" -ne 0 ] ; then
    echo "you should execute this script as a root user"
    exit 1
 fi
+
+echo -n "Installing Ngnix :"
+
 yum install nginx -y &>> /tmp/frontend.log
 if [ $? -eq 0 ] ; then
 echo -e "\e[32m success \e[0m"
