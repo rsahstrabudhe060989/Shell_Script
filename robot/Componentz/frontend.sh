@@ -4,7 +4,7 @@ set -e # if any thing fail script will be exited
 
 #validating  wheather the executed user is root or not
 component=frontend
-logfile= "/tmp/$component.log"
+logfile="/tmp/$component.log"
 
 ID=$(id -u) 
 
