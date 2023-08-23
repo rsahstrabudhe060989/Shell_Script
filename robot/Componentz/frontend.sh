@@ -1,5 +1,6 @@
 #!/bin/bash
 
+set -r # if any thing fail script will be exited
 yum install nginx -y
 
 curl -s -L -o /tmp/frontend.zip "https://github.com/stans-robot-project/frontend/archive/main.zip"
