@@ -6,7 +6,7 @@ set -e # if any thing fail script will be exited
 
 ID=$(id -u) 
 
-if ["$ID" -ne 0] ; then
+if [ "$ID" -ne 0 ] ; then
    echo "you should execute this script as a root user"
    exit 1
 fi
