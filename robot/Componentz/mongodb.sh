@@ -40,7 +40,19 @@ echo -n "Updating the $component visibility"
 sed -i -e 's/127.0.0.1/0.0.0.0/' /etc/mongod.conf
 stat $?
 
-echo -n "performing Daemon-Reload :"
+echo -n "performing $component Daemon-Reload :"
 systemctl daemon-reload &>> $logfile
 systemctl restart mongod
 stat $?
+
+echo -n "Downloading  $component Schema :"
+curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/archive/main.zip"
+stat $?
+
+echo -n "Ejecting  $component Schema :"
+ unzip $component.zip &>> $logfile
+ cd /tmp/$component-main
+ cd mongodb-main
+ mongo < catalogue.js  &>> $logfile
+ mongo < users.js  &>> $logfile
+ stat $?
