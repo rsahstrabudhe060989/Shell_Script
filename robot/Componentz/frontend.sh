@@ -1,10 +1,10 @@
 #!/bin/bash
 
-set -r # if any thing fail script will be exited
+set -e # if any thing fail script will be exited
 
 #validating  wheather the executed user is root or not
 ID=${id -u} 
-if [ "$ID" -ne 0] ; then
+if ["$ID" -ne 0] ; then
    echo "you should execute this script as a root user"
    exit 1
 fi
