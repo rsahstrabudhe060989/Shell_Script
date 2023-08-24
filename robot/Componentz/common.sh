@@ -31,7 +31,7 @@ fi
 DOWNLOAD_AND_EXTRACT()
 {
 echo -n " Downloading the $component component:"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"  &>> $logfile
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip" &>> $logfile
 stat $?
 
 echo -n "Extracting the $component"
