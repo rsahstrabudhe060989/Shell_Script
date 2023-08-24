@@ -45,8 +45,11 @@ stat $?
 
 echo -n "Extracting the $component"
 cd /home/roboshop
+rm -rf /home/roboshop/$component &>> $logfile
 unzip -o /tmp/$component.zip &>> $logfile
+stat $?
 
 echo -n "Configurng the permissions:"
 mv /home/roboshop/$component-main/ home/roboshop/$component
 chown -R roboshop:roboshop home/roboshop/$component
+stat $?
