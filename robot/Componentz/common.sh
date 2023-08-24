@@ -110,7 +110,7 @@ mvn clean package &>> $logfile
 JAVA(){
 
 echo  -n "Insttalling Maven:"
-yum install maven -y    &>> $logfile ( installs maven with java 8 )
+yum install maven -y  &>> $logfile 
 stat $?
 CREATE_USER
 DOWNLOAD_AND_EXTRACT
