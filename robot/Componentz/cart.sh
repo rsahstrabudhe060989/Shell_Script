@@ -25,11 +25,11 @@ fi
 }
 
 echo -n "Downloading the $component Component:"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  &>> $logfile
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  
 stat $?
 
 echo -n "Installation of $component Component:"
-yum install nodejs -y  &>> $logfile
+yum install nodejs -y  
 stat $?
 
 id $appuser  &>> $logfile
