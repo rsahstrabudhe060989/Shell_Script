@@ -29,13 +29,13 @@ curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -
 stat $?
 
 echo -n "Installation of $component Component:"
-yum install nodejs -y 
+yum install nodejs -y  &>> $logfile
 stat $?
 
 id $appuser 
 if [ $? -ne 0 ]; then
-     echo -n " Creating  The application User Accounts:"
-    useradd roboshop 
+     echo -n " Creating  The application User Accounts:" &>> $logfile
+    useradd roboshop  &>> $logfile
      stat $?
    fi
 
@@ -52,12 +52,12 @@ stat $?
 
 echo -n "Configurng the permissions:"
 mv /home/roboshop/$component-main/ /home/roboshop/$component
-chown -R roboshop:roboshop /home/roboshop/$component
+chown -R roboshop:roboshop /home/roboshop/$component &>> $logfile
 stat $?
 
 echo -n "Installing the $component Application:"
 cd /home/roboshop/$component/
-npm install
+npm install &>> $logfile
 stat $?
 
 
