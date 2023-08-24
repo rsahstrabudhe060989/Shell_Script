@@ -114,7 +114,7 @@ yum install maven -y  &>> $logfile
 stat $?
 CREATE_USER
 DOWNLOAD_AND_EXTRACT
+MVN_PACKAGE
 mv target/shipping-1.0.jar shipping.jar
 stat $?
-MVN_PACKAGE
 }
