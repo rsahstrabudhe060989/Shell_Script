@@ -31,9 +31,13 @@ echo -n "Installation of $component Component:"
 yum install nodejs -y &>> $logfile
 stat $?
 
-echo -n " Creating  The application User Accounts:"
-useradd roboshop &>> $logfile
-stat $?
+id  roboshop
+if [ $? -ne 0 ] ; then
+      echo -n " Creating  The application User Accounts:"
+      useradd roboshop &>> $logfile
+      stat $?
+fi
+
 
 echo -n " Downloading the $component component:"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" &>> $logfile
