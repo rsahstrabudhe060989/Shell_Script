@@ -71,3 +71,4 @@ echo -n "starting service:"
  systemctl daemon-reload &>> $logfile
  systemctl enable $component &>> $logfile
  systemctl restart $component &>> $logfile
+ stat $?
