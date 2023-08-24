@@ -41,30 +41,30 @@ if [ $? -ne 0 ]; then
 
 
 echo -n " Downloading the $component component:"
-curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip"  &>> $logfile
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip" 
 stat $?
 
 echo -n "Extracting the $component"
 cd /home/roboshop/
 rm -rf /home/roboshop/$component 
-unzip -o /tmp/$component.zip &>> $logfile
+unzip -o /tmp/$component.zip 
 stat $?
 
 echo -n "Configurng the permissions:"
 mv /home/roboshop/$component-main/ /home/roboshop/$component
-chown -R roboshop:roboshop /home/roboshop/$component  &>> $logfile
+chown -R roboshop:roboshop /home/roboshop/$component 
 stat $?
 
 echo -n "Installing the $component Application:"
 cd /home/roboshop/$component/
-npm install &>> $logfile
+npm install 
 stat $?
 
 
 echo -n "Updating the systemD file with DB Details:"
-sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/$component/systemd.service &>> $logfile
-sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/$component/systemd.service &>> $logfile
-mv /home/roboshop/$component/systemd.service /etc/systemd/system/$component.service &>> $logfile
+sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/$component/systemd.service 
+sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/$component/systemd.service 
+mv /home/roboshop/$component/systemd.service /etc/systemd/system/$component.service 
 stat $?
 
 echo -n "starting service:"
