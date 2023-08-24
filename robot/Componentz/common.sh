@@ -19,9 +19,9 @@ stat() {
 fi
 }
 
-DOWNLOAD_AND EXTRACT()
+DOWNLOAD_AND_EXTRACT()
 {
-    echo -n " Downloading the $component component:"
+echo -n " Downloading the $component component:"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"  &>> $logfile
 stat $?
 
@@ -70,7 +70,7 @@ yum install nodejs -y  &>> $logfile
 stat $?
 
 #Calling Download_and_Extract
-DOWNLOAD_AND EXTRACT
+DOWNLOAD_AND_EXTRACT
 
 #Calling NPM Istall Function
 NPM_INSTALL
