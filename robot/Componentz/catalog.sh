@@ -46,7 +46,7 @@ stat $?
 echo -n "Extracting the $component"
 cd /home/roboshop
 rm -rf /home/roboshop/$component &>> $logfile
-unzip -o /tmp/$component.zip &>> $logfile
+unzip -o /tmp/$component.zip 
 stat $?
 
 echo -n "Configurng the permissions:"
@@ -56,8 +56,9 @@ stat $?
 
 echo -n "Installing the $component Application:"
 cd /home/roboshop/$component/
-npm install &>> $logfile
+npm install
 stat $?
+
 
 echo -n "Updating the systemD file with DB Details:"
 sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/$component/systemd.service
