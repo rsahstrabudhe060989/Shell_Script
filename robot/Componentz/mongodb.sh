@@ -50,6 +50,7 @@ curl -s -L -o /tmp/mongodb.zip "https://github.com/stans-robot-project/mongodb/a
 stat $?
 
 echo -n "Ejecting  $component Schema :"
+ cd /tmp
  unzip $component.zip &>> $logfile
  cd /tmp/$component-main
  cd mongodb-main
