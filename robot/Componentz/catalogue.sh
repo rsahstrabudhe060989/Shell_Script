@@ -32,12 +32,12 @@ echo -n "Installation of $component Component:"
 yum install nodejs -y 
 stat $?
 
-#id $appuser 
-#if [ $? -ne 0 ]; then
- #     echo -n " Creating  The application User Accounts:"
+id $appuser 
+if [ $? -ne 0 ]; then
+     echo -n " Creating  The application User Accounts:"
     useradd roboshop 
-   #   stat $?
-   #fi
+     stat $?
+   fi
 
 
 echo -n " Downloading the $component component:"
@@ -46,7 +46,7 @@ stat $?
 
 echo -n "Extracting the $component"
 cd /home/roboshop/
-#rm -rf /home/roboshop/$component &>> $logfile
+rm -rf /home/roboshop/$component &>> $logfile
 unzip -o /tmp/$component.zip 
 stat $?
 
