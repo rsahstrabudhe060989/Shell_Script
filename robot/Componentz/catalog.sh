@@ -41,9 +41,11 @@ stat $?
 
 echo -n " Downloading the $component component:"
 curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" &>> $logfile
+stat $?
+
 echo -n "Extracting the $component"
 cd /home/roboshop
-unzip -o /tmp/catalogue.zip &>> $logfile
+unzip -o /tmp/$component.zip &>> $logfile
 
 echo -n "Configurng the permissions:"
 mv /home/roboshop/$component-main/ home/roboshop/$component
