@@ -1,3 +1,5 @@
+vim ~/.bash_profile # load default setting for users
+
 SED (Streamline Editor)
 
 Delete the lines
