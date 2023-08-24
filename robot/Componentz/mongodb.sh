@@ -51,7 +51,7 @@ stat $?
 
 echo -n "Ejecting  $component Schema :"
  cd /tmp
- unzip $component.zip &>> $logfile
+ unzip $component.zip 
  cd /tmp/$component-main
  mongo < catalogue.js  &>> $logfile
  mongo < users.js  &>> $logfile
