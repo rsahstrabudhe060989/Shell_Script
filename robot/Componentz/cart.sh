@@ -24,7 +24,7 @@ fi
 }
 
 echo -n "Downloading the $component Component:"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -  
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash -   &>> $logfile
 stat $?
 
 echo -n "Installation of $component Component:"
