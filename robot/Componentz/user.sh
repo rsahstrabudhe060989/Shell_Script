@@ -41,7 +41,7 @@ if [ $? -ne 0 ]; then
 
 
 echo -n " Downloading the $component component:"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip"  
+curl -s -L -o /tmp/$component.zip "https://github.com/stans-robot-project/$component/archive/main.zip"  
 stat $?
 
 echo -n "Extracting the $component"
