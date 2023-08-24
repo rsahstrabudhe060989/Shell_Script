@@ -19,6 +19,15 @@ stat() {
 fi
 }
 
+CREATE_USER(){
+id $appuser  &>> $logfile
+if [ $? -ne 0 ]; then
+     echo -n " Creating  The application User Accounts:" &>> $logfile
+    useradd roboshop  &>> $logfile
+     stat $?
+fi
+}
+
 DOWNLOAD_AND_EXTRACT()
 {
 echo -n " Downloading the $component component:"
@@ -56,6 +65,9 @@ sed -i -e 's/MONGO_ENDPOINT/mongodb.roboshop.internal/' /home/roboshop/$componen
 stat $?
 sed -i -e 's/REDIS_ENDPOINT/redis.roboshop.internal/' /home/roboshop/$component/systemd.service  &>> $logfile
 sed -i -e 's/CATALOGUE_ENDPOINT/catalogue.roboshop.internal/' /home/roboshop/$component/systemd.service  &>> $logfile
+sed -i -e 's/CARTENDPOINT /cart.roboshop.internal/' /home/roboshop/$component/systemd.service  &>> $logfile
+sed -i -e 's/DBHOST/mysql.roboshop.internal/' /home/roboshop/$component/systemd.service  &>> $logfile
+
 mv /home/roboshop/$component/systemd.service /etc/systemd/system/$component.service  &>> $logfile
 
 stat $?
@@ -77,6 +89,9 @@ echo -n "Installation of $component Component:"
 yum install nodejs -y  &>> $logfile
 stat $?
 
+# Calling CreateUser Function
+CREATE_USER
+
 #Calling Download_and_Extract
 DOWNLOAD_AND_EXTRACT
 
@@ -85,5 +100,21 @@ NPM_INSTALL
 
 #Calling Config svc function
 CONFIG_SVC
+}
+MVN_PACKAGE(){
+echo -n "Starting the $Component service :"
+cd /home/$APPUSER/$component/
+mvn clean package &>> $logfile
+}
 
+JAVA(){
+
+echo  -n "Insttalling Maven:"
+yum install maven -y    &>> $logfile ( installs maven with java 8 )
+stat $?
+CREATE_USER
+DOWNLOAD_AND_EXTRACT
+mv target/shipping-1.0.jar shipping.jar
+stat $?
+MVN_PACKAGE
 }
