@@ -5,6 +5,7 @@ set -e # if any thing fail script will be exited
 #validating  wheather the executed user is root or not
 component=catalogue
 logfile="/tmp/$component.log"
+appuser=roboshop
 
 ID=$(id -u) 
 
@@ -31,7 +32,7 @@ echo -n "Installation of $component Component:"
 yum install nodejs -y 
 stat $?
 
-id  roboshop 
+id $appuser 
 if [ $? -ne 0 ]; then
       echo -n " Creating  The application User Accounts:"
       useradd roboshop 
