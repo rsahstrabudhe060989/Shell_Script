@@ -24,17 +24,17 @@ fi
 }
 
 echo -n "Downloading the $component Component:"
-curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - &>> $logfile
+curl --silent --location https://rpm.nodesource.com/setup_16.x | sudo bash - 
 stat $?
 
 echo -n "Installation of $component Component:"
-yum install nodejs -y &>> $logfile
+yum install nodejs -y 
 stat $?
 
 id  roboshop &>> $logfile
 if [ $? -ne 0 ] ; then
       echo -n " Creating  The application User Accounts:"
-      useradd roboshop &>> $logfile
+      useradd roboshop 
       stat $?
       
      
@@ -42,7 +42,7 @@ fi
 
 
 echo -n " Downloading the $component component:"
-curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" &>> $logfile
+curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalogue/archive/main.zip" 
 stat $?
 
 echo -n "Extracting the $component"
