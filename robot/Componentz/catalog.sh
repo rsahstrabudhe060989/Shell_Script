@@ -44,7 +44,7 @@ curl -s -L -o /tmp/catalogue.zip "https://github.com/stans-robot-project/catalog
 stat $?
 
 echo -n "Extracting the $component"
-cd /home/roboshop
+#cd /home/roboshop
 rm -rf /home/roboshop/$component &>> $logfile
 unzip -o /tmp/$component.zip 
 stat $?
