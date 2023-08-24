@@ -32,10 +32,10 @@ echo -n "Installation of $component Component:"
 yum install nodejs -y  
 stat $?
 
-id $appuser  &>> $logfile
+id $appuser  
 if [ $? -ne 0 ]; then
-     echo -n " Creating  The application User Accounts:" &>> $logfile
-    useradd roboshop  &>> $logfile
+     echo -n " Creating  The application User Accounts:" 
+    useradd roboshop  
      stat $?
    fi
 
