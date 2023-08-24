@@ -53,3 +53,18 @@ echo -n "Configurng the permissions:"
 mv /home/roboshop/$component-main/ home/roboshop/$component
 chown -R roboshop:roboshop home/roboshop/$component
 stat $?
+
+echo -n "Installing the $component Application:"
+cd /home/roboshop/$component/
+npm install &>> $logfile
+stat $?
+
+echo -n "Updating the systemD file with DB Details:"
+sed -i -e 's/MONGO_DNSNAME/mongodb.roboshop.internal/' /home/roboshop/$component/systemd.service
+mv /home/roboshop/$component/systemd.service /etc/systemd/system/$component.service
+stat $?
+
+echo -n "starting service:"
+ systemctl daemon-reload &>> $logfile
+ systemctl enable $component &>> $logfile
+ systemctl start $component &>> $logfile
