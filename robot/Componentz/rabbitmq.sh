@@ -21,7 +21,10 @@ yum install rabbitmq-server -y
 
 echo -n "Creating $component aaplication"
 
+rabbitmqctl list_users | grep roboshop &>> $logfile
+if [ $? -ne 0]; then
  rabbitmqctl add_user roboshop roboshop123
  rabbitmqctl set_user_tags roboshop administrator
  rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
-```
+```stat $?
+fi
