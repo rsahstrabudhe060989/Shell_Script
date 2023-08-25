@@ -9,8 +9,8 @@ component=rabbitmq
 source Componentz/common.sh 
 
  echo -n "Installation ERLang Dependency:"
- curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash &>> $logfile
- curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash &>> $logfile
+ curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash  
+ curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash 
  $?
 echo -n "Installation $component:"
 yum install rabbitmq-server -y
@@ -21,9 +21,9 @@ yum install rabbitmq-server -y
 
 echo -n "Creating $component aaplication"
 
-rabbitmqctl list_users | grep roboshop &>> $logfile
+rabbitmqctl list_users | grep roboshop 
 if [ $? -ne 0]; then
- echo -n " Creating  The application User Accounts:" &>> $logfile
+ echo -n " Creating  The application User Accounts:" 
  rabbitmqctl add_user roboshop roboshop123
  stat $?
 fi
