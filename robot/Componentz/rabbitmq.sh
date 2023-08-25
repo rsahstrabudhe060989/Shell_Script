@@ -11,10 +11,10 @@ source Componentz/common.sh
  echo -n "Installation ERLang Dependency:"
  curl -s https://packagecloud.io/install/repositories/rabbitmq/erlang/script.rpm.sh | sudo bash  
  curl -s https://packagecloud.io/install/repositories/rabbitmq/rabbitmq-server/script.rpm.sh | sudo bash 
- $?
+ stat $?
 echo -n "Installation $component:"
 yum install rabbitmq-server -y
- $?
+  stat $?
 
  systemctl enable rabbitmq-server 
  systemctl start rabbitmq-server
