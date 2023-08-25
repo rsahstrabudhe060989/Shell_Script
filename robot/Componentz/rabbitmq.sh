@@ -23,8 +23,11 @@ echo -n "Creating $component aaplication"
 
 rabbitmqctl list_users | grep roboshop &>> $logfile
 if [ $? -ne 0]; then
+ echo -n " Creating  The application User Accounts:" &>> $logfile
  rabbitmqctl add_user roboshop roboshop123
+ stat $?
+fi
  rabbitmqctl set_user_tags roboshop administrator
  rabbitmqctl set_permissions -p / roboshop ".*" ".*" ".*"
-```stat $?
-fi
+stat $?
+
