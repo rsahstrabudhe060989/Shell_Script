@@ -1,7 +1,7 @@
 #!/bin/bash 
 
 COMPONENT=mysql
-source components/common.sh
+source Componentz/common.sh
 
 echo -n "Configuring the $COMPONENT repo :"
 curl -s -L -o /etc/yum.repos.d/mysql.repo https://raw.githubusercontent.com/stans-robot-project/$COMPONENT/main/$COMPONENT.repo 
